@@ -7,19 +7,19 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $app = new \Slim\App([
 	'settings' => [
-		'displayErrorDetails' => true,	
+		'displayErrorDetails' => true,
 		'db' => [
 			'driver' => 'mysql',
 			'host' => 'localhost',
-			'database' => 'temp',
-			'username' => 'homestead',
-			'password' => 'secret',
+			'database' => 'circle',
+			'username' => 'root',
+			'password' => null,
 			'charset' => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix' => '',
-		]	
+		]
 	],
-	
+
 ]);
 
 $container = $app->getContainer();
@@ -45,10 +45,6 @@ $container['view'] = function($container){
 	));
 
 	return $view;
-};
-
-$container['HomeController'] = function($container){
-	return new \App\Controllers\HomeController($container);
 };
 
 require __DIR__ . '/../app/routes.php';
