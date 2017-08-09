@@ -46,4 +46,8 @@ $container['view'] = function ($container) {
     return $view;
 };
 
+$container['validator'] = function ($container) {
+    return new App\Validation\validator;
+};
+
 require __DIR__.'/../app/routes.php';
