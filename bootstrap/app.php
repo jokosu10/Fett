@@ -1,18 +1,20 @@
 <?php
 
+namespace Bootstrap\App;
+
 session_start();
 
 require __DIR__.'/../vendor/autoload.php';
 
 $app = new \Slim\App([
     'settings' => [
-        'displayErrorDetails' => true,
+        'displayErrorDetails' => getenv('DEBUG'),
         'db'                  => [
-            'driver'    => 'mysql',
-            'host'      => 'localhost',
-            'database'  => 'circle',
-            'username'  => 'root',
-            'password'  => null,
+            'driver'    => getenv('DB_DRIVER'),
+            'host'      => getenv('DB_HOST', '127.0.0.1'),
+            'database'  => getenv('DB_NAME'),
+            'username'  => getenv('DB_USER'),
+            'password'  => getenv('DB_PASSWORD'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
@@ -21,35 +23,12 @@ $app = new \Slim\App([
 
 ]);
 
-$container = $app->getContainer();
+// Container
+require __DIR__.'/../config/container.php';
 
-$capsule = new \Illuminate\Database\Capsule\Manager();
-$capsule->addConnection($container['settings']['db']);
-$capsule->setAsGlobal();
-$capsule->bootEloquent();
+// Load Environment file
+$dotenv = new Dotenv\Dotenv('../');
+$dotenv->load();
 
-$container['db'] = function ($container) use ($capsule) {
-    return $capsule;
-};
-
-$container['view'] = function ($container) {
-    $view = new \Slim\Views\Twig(__DIR__.'/../resources/views', [
-        'cache' => false,
-
-    ]);
-
-    $view->addExtension(new \Slim\Views\TwigExtension(
-        $container->router,
-        $container->request->getUri()
-    ));
-
-    return $view;
-};
-
-$container['validator'] = function ($container) {
-    return new App\Validation\validator;
-};
-
-$app->add(new \App\Middleware\ValidationErrorsMiddleware($container));
 
 require __DIR__.'/../app/routes.php';
