@@ -1,10 +1,19 @@
 {
+    "name": "danrovito/circle",
+    "description": "A PHP framework based on Slim for developing APIs.",
+    "license": "MIT",
     "require": {
         "slim/slim": "^3.0",
         "illuminate/database": "^5.3",
         "vlucas/phpdotenv": "^2.4",
         "dopesong/slim-whoops": "^2.2"
     },
+    "authors": [
+        {
+            "name": "Dan Rovito",
+            "email": "dan@danrovito.com"
+        }
+    ],
     "autoload": {
     	"psr-4": {
     		"App\\": "app"
