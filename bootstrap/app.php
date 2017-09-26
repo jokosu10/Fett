@@ -30,5 +30,4 @@ require __DIR__.'/../config/container.php';
 $dotenv = new Dotenv\Dotenv('../');
 $dotenv->load();
 
-
 require __DIR__.'/../app/routes.php';

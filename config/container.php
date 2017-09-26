@@ -16,6 +16,6 @@ $container['db'] = function ($container) use ($capsule) {
 };
 
 // Error Handling
-$container['phpErrorHandler'] = $container['errorHandler'] = function($c) {
+$container['phpErrorHandler'] = $container['errorHandler'] = function ($c) {
     return new WhoopsError($c->get('settings')['displayErrorDetails']);
 };
