@@ -6,6 +6,6 @@ class HomeController extends Controller
 {
     public function index($request, $response)
     {
-        return print "Circle Framework";
+        return print 'Circle Framework';
     }
 }
