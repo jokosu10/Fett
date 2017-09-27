@@ -1,5 +1,5 @@
 {
-    "name": "danrovito/circle",
+    "name": "danrovito/fett",
     "description": "A PHP framework based on Slim for developing APIs.",
     "license": "MIT",
     "require": {
