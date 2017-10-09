@@ -4,7 +4,7 @@
     "license": "MIT",
     "require": {
         "slim/slim": "^3.0",
-        "illuminate/database": "^5.3",
+        "illuminate/database": "5.3 || 5.4 || 5.5",
         "vlucas/phpdotenv": "^2.4",
         "dopesong/slim-whoops": "^2.2"
     },
