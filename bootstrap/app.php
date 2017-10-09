@@ -12,8 +12,8 @@ require __DIR__ . '/../vendor/autoload.php';
 $settingsConfig = [
     'settings' => [
         'displayErrorDetails' => getenv('DEBUG'),
-        'db' => require '../config/database.php'
-        ,
+        'db'                  => require __DIR__.'/../config/database.php',
+
     ],
 
 ];
