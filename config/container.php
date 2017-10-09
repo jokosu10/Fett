@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Config\Container;
 
 use Dopesong\Slim\Error\Whoops as WhoopsError;
