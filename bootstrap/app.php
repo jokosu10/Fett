@@ -7,8 +7,6 @@ use Slim\App;
 
 session_start();
 
-require __DIR__.'/../vendor/autoload.php';
-
 $settingsConfig = [
     'settings' => [
         'displayErrorDetails' => getenv('DEBUG'),

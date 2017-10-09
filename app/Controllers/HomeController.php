@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class HomeController extends Controller
 {
-    public function index($request, $response)
+    public function index()
     {
         return print 'Fett API Framework';
     }
