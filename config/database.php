@@ -1,5 +1,6 @@
 <?php
 
+
 return [
     'driver'    => getenv('DB_DRIVER'),
     'host'      => getenv('DB_HOST', '127.0.0.1'),
